@@ -3,47 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Website</title>
+    <title>Catch the Ball Game</title>
     <style>
-        /* Add your CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
+        canvas {
+            display: block;
+            margin: 0 auto;
             background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <div class="container">
-        <h2>About Me</h2>
-        <p>This is a simple website to showcase my skills and interests.</p>
-        <h2>My Projects</h2>
-        <ul>
-            <li><a href="#">Project 1</a></li>
-            <li><a href="#">Project 2</a></li>
-            <li><a href="#">Project 3</a></li>
-        </ul>
-        <h2>Contact Me</h2>
-        <p>You can reach me at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
-    </div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // Get the canvas element and its context
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Initialize game variables
+        let paddleWidth = 100;
+        let paddleX = (canvas.width - paddleWidth) / 2;
+        const paddleHeight = 10;
+        const ballRadius = 10;
+        let ballX = canvas.width / 2;
+        let ballY = canvas.height - paddleHeight - ballRadius;
+        let ballSpeedX = 5;
+        let ballSpeedY = -5;
+        let rightPressed = false;
+        let leftPressed = false;
+
+        // Event listeners for paddle control
+        document.addEventListener("keydown", keyDownHandler);
+        document.addEventListener("keyup", keyUpHandler);
+
+        function keyDownHandler(e) {
+            if (e.key == "Right" || e.key == "ArrowRight") {
+                rightPressed = true;
+            } else if (e.key == "Left" || e.key == "ArrowLeft") {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if (e.key == "Right" || e.key == "ArrowRight") {
+                rightPressed = false;
+            } else if (e.key == "Left" || e.key == "ArrowLeft") {
+                leftPressed = false;
+            }
+        }
+
+        // Update game elements and draw the game
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the paddle
+            ctx.fillStyle = "#0095DD";
+            ctx.fillRect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+
+            // Draw the ball
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+
+            // Update ball position
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            // Ball collision with walls
+            if (ballX + ballRadius > canvas.width || ballX - ballRadius < 0) {
+                ballSpeedX = -ballSpeedX;
+            }
+
+            // Ball collision with paddle
+            if (
+                ballY + ballRadius > canvas.height - paddleHeight &&
+                ballX > paddleX &&
+                ballX < paddleX + paddleWidth
+            ) {
+                ballSpeedY = -ballSpeedY;
+            }
+
+            // Game over condition
+            if (ballY + ballRadius > canvas.height) {
+                alert("Game Over!");
+                document.location.reload();
+            }
+
+            // Move the paddle
+            if (rightPressed && paddleX < canvas.width - paddleWidth) {
+                paddleX += 7;
+            } else if (leftPressed && paddleX > 0) {
+                paddleX -= 7;
+            }
+
+            requestAnimationFrame(drawGame);
+        }
+
+        drawGame(); // Start the game loop
+    </script>
 </body>
 </html>
-
