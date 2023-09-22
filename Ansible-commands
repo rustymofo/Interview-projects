@@ -1,0 +1,16 @@
+    2  which ansible
+    3  vi ansible.sh
+    4  sh ansible.sh 
+    5  sudo su
+    6  exit
+    7  vi etc/ansible/hosts
+    8  vi /etc/ansible/hosts
+    9  ssh-keygen
+   10  ssh-copy-id -i root@172.31.8.104
+   11  ssh-copy-id -i root@172.31.8.104
+   12  ssh-copy-id -i root@3.111.30.5
+   13  ssh-copy-id -i /path/to/your/public/key root@172.31.8.104
+   14  ssh-copy-id -i ~/.ssh/id_rsa.pub root@172.31.8.104
+   15  ssh root@172.31.8.104
+   16  ls
+   17  which git
