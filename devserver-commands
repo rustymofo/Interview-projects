@@ -1,0 +1,26 @@
+    1  yum install git
+    2  git clone https://github.com/rustymofo/demo-project.git
+    3  ls
+    4  cd demo-project/
+    5  ls
+    6  cat index.html 
+    7  vi index.html 
+    8  git add .
+    9  git commin -m "html demo
+   10  exit
+   11  cjbc
+   12  git commit -m "html-demo"
+   13  ls
+   14  git status
+   15  git push origin master
+   16  git branch
+   17  git remote add https://github.com/rustymofo/demo-project.git
+   18  git remote add origin https://github.com/rustymofo/demo-project.git
+   19  git remote set-url origin https://github.com/rustymofo/demo-project.git
+   20  git remote add origin https://github.com/rustymofo/demo-project.git
+   21  git remote add mynewremote https://github.com/rustymofo/demo-project.git
+   22  git push origin master
+   23  git remote -v
+   24  git checkout -b master
+   25  git remote -v
+   26  git push origin master
