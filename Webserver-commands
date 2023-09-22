@@ -1,0 +1,28 @@
+    2  yum install httpd -y
+    3  systemctl start httpd
+    4  systemctl status httpd
+    5  systemctl enable httpd
+    6  systemctl status httpd
+    7  cd /var/www/html/
+    8  ls
+    9  passwd root
+   10  passwd root
+   11  vi /etc/ssh/sshd_config
+   12  systemctl restart sshd
+   13  vi /etc/ssh/sshd_config
+   14  systemctl restart sshd
+   15  ls
+   16  l
+   17  ls
+   18  cd /var/lib/html
+   19  cd /var
+   20  ls
+   21  cd lib
+   22  ls
+   23  cd ..
+   24  ls
+   25  cd www/
+   26  ls
+   27  cd html/
+   28  ls
+   29  cat index.html 
