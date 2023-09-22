@@ -3,81 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - DevOps Resume</title>
+    <title>Car Racing Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
-            padding: 0;
+            overflow: hidden;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        canvas {
+            display: block;
+            background-color: #000;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <p>DevOps Engineer</p>
-        <p>Email: your.email@example.com</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    </header>
-    <div class="container">
-        <h2>Summary</h2>
-        <p>
-            Experienced DevOps Engineer with a strong background in automating, configuring, and optimizing cloud-based infrastructure. Skilled in deploying and managing containers, implementing CI/CD pipelines, and ensuring the reliability and security of production systems.
-        </p>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
 
-        <h2>Skills</h2>
-        <ul>
-            <li>Infrastructure as Code (IaC) with Terraform</li>
-            <li>Containerization with Docker and Kubernetes</li>
-            <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
-            <li>Scripting and Automation (Python, Bash)</li>
-            <li>Cloud Platforms (AWS, Azure, GCP)</li>
-            <li>Monitoring and Logging (Prometheus, ELK Stack)</li>
-            <li>Version Control (Git)</li>
-            <li>Security Best Practices</li>
-            <li>Linux/Unix System Administration</li>
-        </ul>
+        const carWidth = 50;
+        const carHeight = 80;
+        const carSpeed = 5;
+        const roadWidth = 400;
+        const roadHeight = 600;
+        const roadColor = "#808080";
 
-        <h2>Experience</h2>
-        <p>
-            <strong>DevOps Engineer</strong><br>
-            ABC Company<br>
-            January 2020 - Present<br>
-            - Collaborated with development teams to implement CI/CD pipelines for automated testing and deployment.<br>
-            - Managed and optimized AWS infrastructure using Terraform, resulting in cost savings of 20%.<br>
-            - Implemented monitoring and alerting solutions to ensure system reliability and performance.<br>
-        </p>
+        let carX = (canvas.width - carWidth) / 2;
+        let carY = canvas.height - carHeight - 20;
+        let roadY = 0;
 
-        <h2>Education</h2>
-        <p>
-            <strong>Bachelor of Science in Computer Science</strong><br>
-            XYZ University<br>
-            Graduated: May 2019<br>
-        </p>
-    </div>
+        function drawCar() {
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(carX, carY, carWidth, carHeight);
+        }
+
+        function drawRoad() {
+            ctx.fillStyle = roadColor;
+            ctx.fillRect((canvas.width - roadWidth) / 2, 0, roadWidth, roadHeight);
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function updateGameArea() {
+            clearCanvas();
+            drawRoad();
+            drawCar();
+            roadY += carSpeed;
+
+            if (roadY > canvas.height) {
+                roadY = -roadHeight;
+            }
+
+            requestAnimationFrame(updateGameArea);
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowLeft" && carX > 0) {
+                carX -= carSpeed;
+            }
+            if (event.key === "ArrowRight" && carX + carWidth < canvas.width) {
+                carX += carSpeed;
+            }
+        });
+
+        updateGameArea();
+    </script>
 </body>
 </html>
