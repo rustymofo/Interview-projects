@@ -3,105 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catch the Ball Game</title>
+    <title>Your Name - DevOps Resume</title>
     <style>
-        canvas {
-            display: block;
-            margin: 0 auto;
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <header>
+        <h1>Your Name</h1>
+        <p>DevOps Engineer</p>
+        <p>Email: your.email@example.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+    </header>
+    <div class="container">
+        <h2>Summary</h2>
+        <p>
+            Experienced DevOps Engineer with a strong background in automating, configuring, and optimizing cloud-based infrastructure. Skilled in deploying and managing containers, implementing CI/CD pipelines, and ensuring the reliability and security of production systems.
+        </p>
 
-    <script>
-        // Get the canvas element and its context
-        const canvas = document.getElementById("gameCanvas");
-        const ctx = canvas.getContext("2d");
+        <h2>Skills</h2>
+        <ul>
+            <li>Infrastructure as Code (IaC) with Terraform</li>
+            <li>Containerization with Docker and Kubernetes</li>
+            <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
+            <li>Scripting and Automation (Python, Bash)</li>
+            <li>Cloud Platforms (AWS, Azure, GCP)</li>
+            <li>Monitoring and Logging (Prometheus, ELK Stack)</li>
+            <li>Version Control (Git)</li>
+            <li>Security Best Practices</li>
+            <li>Linux/Unix System Administration</li>
+        </ul>
 
-        // Initialize game variables
-        let paddleWidth = 100;
-        let paddleX = (canvas.width - paddleWidth) / 2;
-        const paddleHeight = 10;
-        const ballRadius = 10;
-        let ballX = canvas.width / 2;
-        let ballY = canvas.height - paddleHeight - ballRadius;
-        let ballSpeedX = 5;
-        let ballSpeedY = -5;
-        let rightPressed = false;
-        let leftPressed = false;
+        <h2>Experience</h2>
+        <p>
+            <strong>DevOps Engineer</strong><br>
+            ABC Company<br>
+            January 2020 - Present<br>
+            - Collaborated with development teams to implement CI/CD pipelines for automated testing and deployment.<br>
+            - Managed and optimized AWS infrastructure using Terraform, resulting in cost savings of 20%.<br>
+            - Implemented monitoring and alerting solutions to ensure system reliability and performance.<br>
+        </p>
 
-        // Event listeners for paddle control
-        document.addEventListener("keydown", keyDownHandler);
-        document.addEventListener("keyup", keyUpHandler);
-
-        function keyDownHandler(e) {
-            if (e.key == "Right" || e.key == "ArrowRight") {
-                rightPressed = true;
-            } else if (e.key == "Left" || e.key == "ArrowLeft") {
-                leftPressed = true;
-            }
-        }
-
-        function keyUpHandler(e) {
-            if (e.key == "Right" || e.key == "ArrowRight") {
-                rightPressed = false;
-            } else if (e.key == "Left" || e.key == "ArrowLeft") {
-                leftPressed = false;
-            }
-        }
-
-        // Update game elements and draw the game
-        function drawGame() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw the paddle
-            ctx.fillStyle = "#0095DD";
-            ctx.fillRect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-
-            // Draw the ball
-            ctx.beginPath();
-            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
-            ctx.closePath();
-
-            // Update ball position
-            ballX += ballSpeedX;
-            ballY += ballSpeedY;
-
-            // Ball collision with walls
-            if (ballX + ballRadius > canvas.width || ballX - ballRadius < 0) {
-                ballSpeedX = -ballSpeedX;
-            }
-
-            // Ball collision with paddle
-            if (
-                ballY + ballRadius > canvas.height - paddleHeight &&
-                ballX > paddleX &&
-                ballX < paddleX + paddleWidth
-            ) {
-                ballSpeedY = -ballSpeedY;
-            }
-
-            // Game over condition
-            if (ballY + ballRadius > canvas.height) {
-                alert("Game Over!");
-                document.location.reload();
-            }
-
-            // Move the paddle
-            if (rightPressed && paddleX < canvas.width - paddleWidth) {
-                paddleX += 7;
-            } else if (leftPressed && paddleX > 0) {
-                paddleX -= 7;
-            }
-
-            requestAnimationFrame(drawGame);
-        }
-
-        drawGame(); // Start the game loop
-    </script>
+        <h2>Education</h2>
+        <p>
+            <strong>Bachelor of Science in Computer Science</strong><br>
+            XYZ University<br>
+            Graduated: May 2019<br>
+        </p>
+    </div>
 </body>
 </html>
