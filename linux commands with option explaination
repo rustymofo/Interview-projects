@@ -69,8 +69,6 @@
 21. chown (Change File Ownership):
     - `user:group file`: Change the owner and group of a file.
 
-Certainly, here are some more commonly used Linux commands and their options:
-
 22. tar (Archive and Compression):
     - `-cvf`: Create a new tar archive.
     - `-xvf`: Extract files from a tar archive.
