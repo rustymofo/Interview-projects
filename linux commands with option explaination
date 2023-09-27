@@ -1,0 +1,219 @@
+1. ls (List Files and Directories):
+   - `-l`: Long format, displays detailed information about files and directories.
+   - `-a`: Show hidden files (those starting with a dot).
+   - `-h`: Human-readable file sizes.
+
+2. cd (Change Directory):
+   - `cd directory_name`: Change to the specified directory.
+
+3. pwd (Print Working Directory):
+   - No options, displays the current directory path.
+
+4. mkdir (Make Directory):
+   - `-p`: Create parent directories if they don't exist.
+
+5. rmdir (Remove Empty Directory):
+   - No options, removes an empty directory.
+
+6. touch (Create Empty File):
+   - No options, creates an empty file.
+   
+7. rm (Remove):
+   - `-r`: Recursively remove directories and their contents.
+   - `-f`: Force removal without prompting.
+
+8. cp (Copy):
+   - `-r`: Copy directories recursively.
+   - `-i`: Prompt before overwriting files.
+   
+9. mv (Move or Rename):
+   - `-i`: Prompt before overwriting files.
+   
+10. cat (Concatenate and Display):
+    - No options, display the contents of a file.
+    - `-n`: Number the output lines.
+
+11. more (View File):
+    - No options, display file content one screen at a time.
+
+12. less (View File with Navigation):
+    - No options, display file content with navigation features.
+
+13. head (Display First Few Lines):
+    - `-n`: Specify the number of lines to display (default is 10).
+
+14. tail (Display Last Few Lines):
+    - `-n`: Specify the number of lines to display (default is 10).
+    - `-f`: Follow the file and display new content as it's added.
+
+15. grep (Search Text):
+    - `-i`: Ignore case when searching.
+    - `-r`: Recursively search directories.
+
+16. find (Search Files and Directories):
+    - `-name`: Search for files by name.
+    - `-type`: Search for specific types (e.g., `-type d` for directories).
+
+17. ps (Process Status):
+    - `-aux`: Display detailed information about running processes.
+
+18. top (Interactive Process Viewer):
+    - No options, dynamically displays system resource usage.
+
+19. kill (Terminate Processes):
+    - `-9`: Forcefully terminate a process.
+   
+20. chmod (Change File Permissions):
+    - Numeric mode (e.g., `chmod 755 file`).
+
+21. chown (Change File Ownership):
+    - `user:group file`: Change the owner and group of a file.
+
+Certainly, here are some more commonly used Linux commands and their options:
+
+22. tar (Archive and Compression):
+    - `-cvf`: Create a new tar archive.
+    - `-xvf`: Extract files from a tar archive.
+    - `-z`: Compress with gzip.
+    - `-j`: Compress with bzip2.
+
+23. gzip (File Compression):
+    - `-d`: Decompress a gzipped file.
+    - `-r`: Recursively compress files in a directory.
+
+24. bzip2 (File Compression):
+    - `-d`: Decompress a bzip2 compressed file.
+
+25. df (Disk Free):
+    - `-h`: Human-readable file sizes.
+    - `-T`: Display filesystem type.
+
+26. du (Disk Usage):
+    - `-h`: Human-readable file sizes.
+    - `-s`: Display only the total size of a directory.
+
+27. free (Display Memory Usage):
+    - `-h`: Human-readable output.
+
+28. uname (Display System Information):
+    - `-a`: Display all system information.
+
+29. ifconfig (Network Interface Configuration):
+    - No options, displays network interface information.
+   
+30. ping (Network Connectivity):
+    - No options, ping a host to check network connectivity.
+
+31. ssh (Secure Shell):
+    - `-p`: Specify a port to connect to.
+    - `-i`: Specify an identity file (private key).
+
+32. scp (Secure Copy):
+    - `-r`: Copy directories recursively.
+
+33. wget (Download Files from the Internet):
+    - `-O`: Specify the output file name.
+
+34. curl (Transfer Data with URLs):
+    - `-O`: Save the output to a file.
+
+35. crontab (Schedule Tasks):
+    - `-e`: Edit the crontab file.
+    - `-l`: List the current cron jobs.
+
+36. sudo (Execute a Command as Superuser):
+    - No options, execute a command with superuser privileges.
+
+37. useradd (Add User):
+    - `-m`: Create a home directory for the user.
+   
+38. userdel (Delete User):
+    - `-r`: Remove the user's home directory.
+
+39. passwd (Change User Password):
+    - No options, change the password for the current user.
+
+40. history (View Command History):
+    - `-c`: Clear command history.
+   
+41. date (Display Date and Time):
+    - `+%FORMAT`: Format the date and time output.
+
+42. shutdown (Shutdown or Reboot the System):
+    - `-h now`: Shutdown immediately.
+    - `-r now`: Reboot immediately.
+
+43. dd (Data Duplicator):
+   - Used for low-level copying and conversion of data.
+   - `if`: Input file.
+   - `of`: Output file.
+   - `bs`: Block size.
+
+44. rsync (Remote File Synchronization):
+   - Used for efficient file and directory synchronization between systems.
+   - Options include `-a` (archive mode), `-v` (verbose), and `-z` (compress).
+
+45. nc (Netcat):
+   - A versatile networking utility often used for port scanning, banner grabbing, and creating reverse shells.
+   - Commonly used with options like `-l` (listen mode) and `-p` (specify port).
+
+46. find (Advanced Search):
+   - Can be used for advanced file searches, e.g., finding files modified within a specific time frame.
+   - Options include `-ctime`, `-mtime`, and `-size`.
+
+47. awk (Text Processing):
+   - A powerful text processing tool for data extraction and reporting.
+   - Typically used with patterns and actions, e.g., `awk '{print $1}' file.txt`.
+
+48. sed (Stream Editor):
+   - A text stream editor used for text manipulation, such as search and replace.
+   - Options include `-i` (in-place editing) and various regular expressions.
+
+49. grep (Advanced Pattern Matching):
+   - Supports advanced pattern matching using regular expressions.
+   - Options include `-E` for extended regex and `-o` to display only matching parts.
+
+50. iptables (Firewall Configuration):
+   - Used to configure the Linux kernel firewall (Netfilter).
+   - Options are extensive, used for configuring rules, NAT, and more.
+
+51. lsof (List Open Files):
+   - Lists information about files opened by processes.
+   - Useful for troubleshooting and identifying open ports.
+
+52. strace (System Call Tracer):
+   - Traces system calls made by a process, aiding in debugging.
+   - Commonly used as `strace -p <PID>` to attach to a running process.
+
+53. ltrace (Library Call Tracer):
+   - Traces library calls made by a process.
+   - Helps in understanding library dependencies.
+
+54. cron (Scheduled Tasks):
+   - The cron daemon allows scheduling tasks at specified intervals.
+   - Use `crontab` to manage user-specific scheduled tasks.
+
+55. at (One-time Task Scheduling):
+   - Allows scheduling tasks to run once at a specified time.
+   - Commands are read from standard input or a file.
+
+56. screen (Terminal Multiplexer):
+   - Provides a virtual terminal session that can be detached and reattached.
+   - Useful for remote sessions or running long-running processes.
+
+57. tmux (Terminal Multiplexer):
+   - Similar to `screen`, allows multiple virtual terminals within a single terminal window.
+   - Offers session management and window splitting.
+
+58. ssh-keygen (SSH Key Generation):
+   - Generates SSH key pairs for secure authentication.
+   - Options include `-t` (key type) and `-b` (key length).
+
+59. curl (HTTP Requests):
+   - Besides downloading files, it can send HTTP requests, handle cookies, and more.
+   - Used for automation and testing.
+
+60. ncdu (NCurses Disk Usage):
+   - Provides a detailed and interactive view of disk space usage.
+   - Great for finding large files and directories.
+
